@@ -18,18 +18,19 @@
   var Signal = Smokesignals.Signal = function (options) {
     var defaults = {
       el: "#flash",
-      contentEl: "#flash_content",
       hideTimeout: 8000
     }
+    
 
     this.options = _.extend(defaults, options);
+    this.options.contentEl = this.options.el + "_content";
   };
 
   // this method of attaching methods to the Signal object is also lifted from backbone.js
   _.extend(Smokesignals.Signal.prototype, {
     flash: function (message, cssClass) {
       var containerElement = $(this.options.el);
-      var contentElement = $(this.options.el + " " + this.options.contentEl);
+      var contentElement = $(this.options.contentEl);
       
       contentElement.html(message);
       containerElement.removeClass().addClass(cssClass).slideDown('med');
