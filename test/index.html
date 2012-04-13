@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>QUnit Tests</title>
+        <link rel="stylesheet" href="qunit-1.2.0.css">
+    </head>
+    <body>
+        <h1 id="qunit-header">Smokesignals Tests</h1>
+        <h2 id="qunit-banner"></h2>
+        <ol id="qunit-tests"></ol>
+        <script src="qunit-1.2.0.js"></script>
+        <script
+          src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script
+          src="underscore-min.js"></script>
+        <script src="../smokesignals.js"></script>
+        <script>
+            test("defaults_are_correct", function() {
+              var smokesignal = new Smokesignals.Signal;
+
+              var expected = {
+                el:"#flash",
+                hideTimeout: 8000,
+                contentEl: "#flash_content"
+              }
+
+              var actual = smokesignal.options;
+
+              same(actual, expected);
+              equals(actual.el, expected.el);
+              equals(actual.contentEl, expected.contentEl);
+              equals(actual.hideTimeout, expected.hideTimeout);
+            });
+            test("set_options_are_correct", function() {
+
+              var expected = {
+                el:"#message",
+                hideTimeout: 4000,
+                contentEl: "#message_content"
+              }
+
+              var smokesignal = new Smokesignals.Signal(expected);
+
+
+              var actual = smokesignal.options;
+
+              same(actual, expected);
+              equals(actual.el, expected.el);
+              equals(actual.contentEl, expected.contentEl);
+              equals(actual.hideTimeout, expected.hideTimeout);
+            });
+        </script>
+    </body>
+</html>
