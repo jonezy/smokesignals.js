@@ -17,3 +17,5 @@ then do this in js
 # TO DO
 
 * Convert or provide the ability to use in jquery style $('#messages').flash({message:"Great success", css:"alert alert-success"}); ?
+
+* Write some [tests] (Qunit)
